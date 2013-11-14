@@ -58,7 +58,7 @@ exports.init = function (root, config) {
         // @returns void
         //
         compile: function (path, options, cb) {
-            
+            cb(ejs.render(path, options));
         }
 
     };
