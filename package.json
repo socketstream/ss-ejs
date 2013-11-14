@@ -1,6 +1,6 @@
 {
   "name": "ss-ejs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "EJS (HTML) code wrapper for SocketStream 0.3",
   "main": "index.js",
   "scripts": {

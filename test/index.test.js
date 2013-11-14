@@ -5,8 +5,9 @@
 // Dependencies
 //
 var assert = require('assert');
-var index  = require('../index');
 var ejs    = require('ejs');
+var fs     = require('fs');
+var index  = require('../index');
 
 
 
@@ -37,12 +38,14 @@ describe('ss-ejs', function () {
 
         it('should provide a compile function within the object, that will turn a template into html', function (done) {
 
-            var ejsTemplate     = '<h1><%= title %></h1>';
+            var ejsTemplatePath = __dirname + '/seed_data/simple.ejs';
             var options         = {title: 'My first blog post'};
-            var expectedResult  = ejs.render(ejsTemplate, options);
-            init.compile(ejsTemplate, options, function (output) {
-                assert.equal(output, expectedResult);
-                done();
+            fs.readFile(ejsTemplatePath, 'utf8', function (err, data) {
+                var expectedResult  = ejs.render(data, options);
+                init.compile(ejsTemplatePath, options, function (output) {
+                    assert.equal(output, expectedResult);
+                    done(err);
+                });
             });
 
         });

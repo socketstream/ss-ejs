@@ -58,7 +58,10 @@ exports.init = function (root, config) {
         // @returns void
         //
         compile: function (path, options, cb) {
-            cb(ejs.render(path, options));
+            fs.readFile(path, 'utf8', function (err, data) {
+                if (err) { throw err; }
+                cb(ejs.render(data, options));
+            });
         }
 
     };
