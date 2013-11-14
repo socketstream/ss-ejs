@@ -1,0 +1,27 @@
+{
+  "name": "ss-ejs",
+  "version": "0.0.0",
+  "description": "EJS (HTML) code wrapper for SocketStream 0.3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cover": "echo \"Error: no coverage specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/socketstream/ss-ejs.git"
+  },
+  "keywords": [
+    "socketstream",
+    "ejs"
+  ],
+  "author": "Paul Jensen <paul@anephenix.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/socketstream/ss-ejs/issues"
+  },
+  "dependencies": {
+    "ejs": "~0.8.4",
+    "mocha": "~1.14.0"
+  }
+}
