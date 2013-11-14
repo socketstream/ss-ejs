@@ -4,7 +4,7 @@
   "description": "EJS (HTML) code wrapper for SocketStream 0.3",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node_modules/.bin/mocha",
     "cover": "echo \"Error: no coverage specified\" && exit 1"
   },
   "repository": {

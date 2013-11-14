@@ -41,7 +41,7 @@ exports.init = function (root, config) {
 
     return {
 
-        name: 'Ejs',
+        name: 'EJS',
 
         extensions: ['ejs'],
 
