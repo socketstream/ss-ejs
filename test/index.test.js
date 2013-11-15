@@ -41,7 +41,7 @@ describe('ss-ejs', function () {
             var ejsTemplatePath = __dirname + '/seed_data/simple.ejs';
             var options         = {title: 'My first blog post'};
             fs.readFile(ejsTemplatePath, 'utf8', function (err, data) {
-                var expectedResult  = ejs.render(data, options);
+                var expectedResult = ejs.render(data, options);
                 init.compile(ejsTemplatePath, options, function (output) {
                     assert.equal(output, expectedResult);
                     done(err);
