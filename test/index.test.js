@@ -17,11 +17,13 @@ describe('ss-ejs', function () {
 
     describe('#init (no options passed)', function () {
 
-        var root, init;
+        var root, init, options;
+
 
         before(function (done) {
-            root = '/user/paulbjensen/apps/example_ss_app_path';
-            init = index.init(root);
+            root        = '/user/paulbjensen/apps/example_ss_app_path';
+            options     = {title: 'My first blog post'};
+            init        = index.init(root, {locals: options});
             done();
         });
 
@@ -39,7 +41,6 @@ describe('ss-ejs', function () {
         it('should provide a compile function within the object, that will turn a template into html', function (done) {
 
             var ejsTemplatePath = __dirname + '/seed_data/simple.ejs';
-            var options         = {title: 'My first blog post'};
             fs.readFile(ejsTemplatePath, 'utf8', function (err, data) {
                 var expectedResult = ejs.render(data, options);
                 init.compile(ejsTemplatePath, options, function (output) {

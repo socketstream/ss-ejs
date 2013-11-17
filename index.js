@@ -20,7 +20,7 @@ var fs  = require('fs'),
 // @returns Object
 //
 exports.init = function (root, config) {
-  
+
 
 
     // If a config object isn't passed, create an empty object
@@ -58,9 +58,37 @@ exports.init = function (root, config) {
         // @returns void
         //
         compile: function (path, options, cb) {
+
+
+
+            var locals = {};
+
+
+
+            // If passing optional headers for main view HTML
+            //
+            if (options && options.headers) {
+                locals.SocketStream = options.headers;
+            }
+
+
+
+            // Merge any locals passed to config.locals
+            //
+            if (config.locals && typeof(config.locals) === 'object') {
+                for (var attrname in config.locals) {
+                    locals[attrname] = config.locals[attrname];
+                }
+            }
+
+
+
             fs.readFile(path, 'utf8', function (err, data) {
+
                 if (err) { throw err; }
-                cb(ejs.render(data, options));
+
+                cb(ejs.render(data, locals));
+
             });
         }
 
